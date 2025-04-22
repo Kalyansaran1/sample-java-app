@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sample-app-blue
+  labels:
+    app: sample-app
+    color: blue
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sample-app
+      color: blue
+  template:
+    metadata:
+      labels:
+        app: sample-app
+        color: blue
+    spec:
+      containers:
+        - name: sample-app
+          image: kalyan134/sample-java-app:blue
+          ports:
+            - containerPort: 8080
